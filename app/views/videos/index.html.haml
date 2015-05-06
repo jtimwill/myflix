@@ -1,17 +1,17 @@
 %article.video_category
   %header
-    %h3= link_to "#{@cat.first.name}", category_path(@cat.first)
+    %h3= link_to "#{@category.first.name}", category_path(@category.first)
   .videos.row
-    - @cat.first.videos.each do |video|
+    - @category.first.videos.each do |video|
       %video_format.video.col-sm-2
         = link_to video_path(video) do
           %img(src="#{video.small_cover_url}")
 
 %article.video_category
   %header
-    %h3= link_to "#{@cat.last.name}", category_path(@cat.last)
+    %h3= link_to "#{@category.last.name}", category_path(@category.last)
   .videos.row
-    - @cat.last.videos.each  do |video|
+    - @category.last.videos.each  do |video|
       %video_format.video.col-sm-2
         = link_to video_path(video) do
           %img(src="#{video.small_cover_url}")

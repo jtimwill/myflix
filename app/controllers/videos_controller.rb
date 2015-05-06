@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_action :set_video, only: [:show]
 
   def index
-    @cat = Category.all
+    @category = Category.all
   end
 
   def show
