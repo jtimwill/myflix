@@ -15,4 +15,4 @@
 /tmp
 
 # Ignore the pg database.
-/database.yml
+config/database.yml
