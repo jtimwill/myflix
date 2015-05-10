@@ -19,7 +19,7 @@ end
 group :development, :test do
   gem 'pry'
   gem 'pry-nav'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '3.2.1'
 end
 
 group :test do
