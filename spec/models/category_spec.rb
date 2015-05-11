@@ -23,6 +23,7 @@ describe Category do
       7.times {Video.create(title: "foo", description: 'bar', category: comedies)}
       expect(comedies.recent_videos.count).to eq(6)
     end
+    
     it "returns an empty array if the category does not have any videos" do
       comedies = Category.create(name: "comedies")
       expect(comedies.recent_videos).to eq([])
