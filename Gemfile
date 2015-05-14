@@ -21,11 +21,7 @@ end
 group :development, :test do
   gem 'pry'
   gem 'pry-nav'
-<<<<<<< HEAD
-  gem 'rspec-rails', '2.99'
-=======
   gem 'rspec-rails'
->>>>>>> mod1
 end
 
 group :test do
