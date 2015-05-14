@@ -201,11 +201,7 @@ DEPENDENCIES
   pry-nav
   rails (= 4.2.0)
   rails_12factor
-<<<<<<< HEAD
-  rspec-rails (= 2.99)
-=======
   rspec-rails
->>>>>>> mod1
   sass-rails
   thin
   uglifier
