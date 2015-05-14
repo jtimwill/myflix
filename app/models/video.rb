@@ -7,3 +7,4 @@ class Video < ActiveRecord::Base
     where("title LIKE ?", "%#{search_term}%").order("created_at DESC")
   end
 end
+
