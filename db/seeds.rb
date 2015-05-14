@@ -6,24 +6,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+comedies = Category.create(name: "Comedies")
+dramas = Category.create(name: "Dramas")
 
-
-tv_shows = Category.create(name: "Comedy")
-
-8.times do |index|
+10.times do |index|
   Video.create(title: "Family Guy #{index + 1}",
                description: "Family Guy Info",
                small_cover_url: "/tmp/family_guy.jpg",
                large_cover_url: "http://dummyimage.com/665x375/000000/00a2ff",
-               category_id: 1)
+               category: comedies)
 end
 
-tv_shows = Category.create(name: "Sci-Fi")
-
-8.times do |index|
+10.times do |index|
   Video.create(title: "Futurama #{index + 1}",
                description: "Futurama Info",
                small_cover_url: "/tmp/futurama.jpg",
                large_cover_url: "http://dummyimage.com/665x375/000000/00a2ff",
-               category_id: 2)
+               category: dramas)
 end
