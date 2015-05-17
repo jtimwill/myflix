@@ -24,3 +24,9 @@ end
                large_cover_url: "http://dummyimage.com/665x375/000000/00a2ff",
                category: dramas)
 end
+
+
+kevin = User.create(full_name: "Kevin Wang", password: "password", email: "kevin@example.com")
+
+Review.create(user: kevin, video: Video.first, rating: 3, content: "This movie is average")
+Review.create(user: kevin, video: Video.first, rating: 1, content: "This movie is trash") 
