@@ -31,7 +31,6 @@ describe ReviewsController do
       end
 
       context "with invalid inputs" do 
-        
         it "does not create a review" do 
           post :create, review: {rating: 4}, video_id: video.id
           expect(Review.count).to eq(0)
