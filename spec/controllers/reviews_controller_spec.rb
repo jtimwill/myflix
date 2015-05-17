@@ -38,7 +38,7 @@ describe ReviewsController do
 
         it "renders the video/show template" do 
           post :create, review: {rating: 4}, video_id: video.id
-          expect(response).to render_template "video/show"
+          expect(response).to render_template "videos/show"
         end
 
         it "sets @video" do
