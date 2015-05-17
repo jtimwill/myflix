@@ -7,7 +7,6 @@ class VideosController < ApplicationController
   end
 
   def show
-    render :search
   end
 
   def search
