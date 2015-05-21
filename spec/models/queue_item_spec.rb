@@ -43,7 +43,7 @@ describe QueueItem do
       category = Fabricate(:category, name: "comedies")
       video = Fabricate(:video, category: category)
       queue_item = Fabricate(:queue_item, video: video)
-      expect(queue_item.category_name).to eq("comedies")
+      expect(queue_item.category).to eq(category)
     end
   end
 end
