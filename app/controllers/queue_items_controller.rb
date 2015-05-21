@@ -20,9 +20,11 @@ class QueueItemsController < ApplicationController
   private
   
   def queue_video(video)
-    QueueItem.create(video: video, user: current_user, position: new_queue_item_position) unless current_user_queue_video?(video)
+    if !current_user_queue_video?(video)
+      QueueItem.create(video: video, user: current_user, position: new_queue_item_position)
+    end
   end
-
+  
   def new_queue_item_position
     current_user.queue_items.count + 1
   end
