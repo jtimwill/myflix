@@ -10,7 +10,6 @@
         .actions
           %a.btn.btn-primary(href="") Watch Now
           = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: :post, class: 'btn btn-default'
-
 %section.reviews.container
   .row
     .col-sm-10.col-sm-offset-1
@@ -40,4 +39,3 @@
                 %p by <a href="">#{review.user.full_name}</a>
               .span8
                 %p= review.content
-      
