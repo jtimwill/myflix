@@ -17,6 +17,7 @@ describe UsersController do
       it "creates the user" do 
         expect(User.count).to eq(1)
       end
+      
       it "redirects to the sign in page" do 
         expect(response).to redirect_to sign_in_path
       end

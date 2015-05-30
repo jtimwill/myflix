@@ -8,7 +8,7 @@ describe SessionsController do
     end
 
     it "redirects to the home page for unauthenticated users" do
-      session[:user_id] = Fabricate(:user).id 
+      set_current_user
       get :new
       expect(response).to redirect_to home_path
     end
@@ -58,7 +58,7 @@ describe SessionsController do
 
   describe "GET destroy" do
     before do
-      session[:user_id] = Fabricate(:user).id 
+      set_current_user
       get :destroy
     end
 
