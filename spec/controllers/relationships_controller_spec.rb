@@ -17,9 +17,9 @@ describe RelationshipsController do
   end
 
   describe "DELETE destroy" do 
-    # it_behaves_like "require sign in " do 
-    #   let(:action) {delete :destroy, id: 4}
-    # end
+    it_behaves_like "require sign in" do 
+      let(:action) {delete :destroy, id: 4}
+    end
 
     it "redirects to the people page" do 
       alice = Fabricate(:user)
