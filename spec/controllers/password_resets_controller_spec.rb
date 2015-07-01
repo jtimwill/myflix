@@ -23,7 +23,7 @@ describe PasswordResetsController do
   end
 
   describe "POST create" do 
-    context "with valid token" do
+    context "with valid token and valid password" do
       it "redirects to the sign in page" do 
         alice = Fabricate(:user, password: 'old_password')
         alice.update_column(:token, '12345')
@@ -53,9 +53,37 @@ describe PasswordResetsController do
       end
     end
 
-    context "with invalid token" do 
+    context "with valid token and invalid password" do 
+      it "sets @token" do 
+        alice = Fabricate(:user)
+        alice.update_column(:token, '12345')
+        post :create, token: '12345', password: ' '
+        expect(assigns(:token)).to eq('12345')
+      end
+
+      it "renders the show template" do 
+        alice = Fabricate(:user)
+        alice.update_column(:token, '12345')
+        post :create, token: '12345', password: ' '
+        expect(response).to render_template :show
+      end
+    end
+
+    context "with invalid token and valid password" do 
       it "redirects to the expired token path" do 
-        post :create, token: '12345', password: 'some_password'
+        alice = Fabricate(:user)
+        alice.update_column(:token, '12345')
+        post :create, token: '12', password: 'password'
+        redirect_to expired_token_path
+      end
+    end
+
+    context "with invalid token and invalid password" do 
+      it "redirects to the expired token path" do 
+        alice = Fabricate(:user)
+        alice.update_column(:token, '12345')
+        post :create, token: '12', password: 'some_password'
+        redirect_to expired_token_path
       end
     end
   end

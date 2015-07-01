@@ -9,12 +9,6 @@ describe User do
   it {should have_many(:reviews).order("created_at DESC")}
   it {should have_many(:following_relationships).class_name('Relationship').with_foreign_key('follower_id') }
 
-  describe "#generate_token!"
-    it "generates a random token" do 
-      alice = Fabricate(:user)
-      expect(alice.generate_token!).to be_present
-    end
-  
   describe "#queued_video?" do 
     it "returns true when the user queued the video" do 
       user = Fabricate(:user)
@@ -43,5 +37,21 @@ describe User do
       Fabricate(:relationship, leader: alice, follower: bob)
       expect(alice.follows?(bob)).to be_falsey
     end 
+  end
+
+  describe "#generate_token!" do 
+    it "generates a random token" do 
+      alice = Fabricate(:user)
+      alice.generate_token!
+      expect(alice.token).to be_present
+    end
+  end
+  
+  describe "#delete_token!" do 
+    it "sets the token value to nil" do 
+      alice = Fabricate(:user)
+      alice.delete_token!
+      expect(alice.token).to eq(nil)
+    end
   end
 end

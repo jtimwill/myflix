@@ -25,8 +25,11 @@ class User < ActiveRecord::Base
   end
 
   def generate_token!
-    self.token = SecureRandom.urlsafe_base64
-    self.save(validate: false)
+    update_column(:token, SecureRandom.urlsafe_base64)
+  end
+
+  def delete_token!
+    update_column(:token, nil)
   end
 end
 

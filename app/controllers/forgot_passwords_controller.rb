@@ -1,6 +1,6 @@
 class ForgotPasswordsController < ApplicationController
   def create
-    user = User.where(email: params[:email]).first
+    user = User.find_by(email: params[:email])
     if user
       user.generate_token!
       AppMailer.send_forgot_password(user).deliver_now
