@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :password, :full_name
   validates_uniqueness_of :email
   has_secure_password validations: false
-  before_create :generate_token
 
   def normalize_queue_item_positions
     queue_items.each_with_index do |queue_item, index|
@@ -25,8 +24,10 @@ class User < ActiveRecord::Base
     !(follows?(another_user) || self == another_user)
   end
 
-  def generate_token
+  def generate_token!
     self.token = SecureRandom.urlsafe_base64
+    self.save(validate: false)
   end
 end
+
 
