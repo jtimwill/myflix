@@ -9,6 +9,6 @@
           = hidden_field_tag :token, @token
           .row
             .col-sm-4
-              = password_field_tag :password
+              = password_field_tag :password, nil, class: "form-control"
         %fieldset.form-group.action
           = submit_tag "Reset Password", class: "btn btn-default"
