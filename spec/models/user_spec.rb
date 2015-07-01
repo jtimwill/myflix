@@ -38,4 +38,20 @@ describe User do
       expect(alice.follows?(bob)).to be_falsey
     end 
   end
+
+  describe "#generate_token!" do 
+    it "generates a random token" do 
+      alice = Fabricate(:user)
+      alice.generate_token!
+      expect(alice.token).to be_present
+    end
+  end
+  
+  describe "#delete_token!" do 
+    it "sets the token value to nil" do 
+      alice = Fabricate(:user)
+      alice.delete_token!
+      expect(alice.token).to eq(nil)
+    end
+  end
 end
