@@ -7,7 +7,11 @@ describe User do
   it {should validate_presence_of(:email)}
   it {should have_many(:queue_items).order("position ASC")}
   it {should have_many(:reviews).order("created_at DESC")}
-  it {should have_many(:following_relationships).class_name('Relationship').with_foreign_key('follower_id') }
+  it {should have_many(:following_relationships).class_name('Relationship').with_foreign_key('follower_id')}
+
+  it_behaves_like "tokenable" do 
+    let(:object){Fabricate(:user)}
+  end
 
   describe "#queued_video?" do 
     it "returns true when the user queued the video" do 
@@ -52,21 +56,5 @@ describe User do
       Fabricate(:relationship, leader: alice, follower: bob)
       expect(alice.follows?(bob)).to be_falsey
     end 
-  end
-
-  describe "#generate_token!" do 
-    it "generates a random token" do 
-      alice = Fabricate(:user)
-      alice.generate_token!
-      expect(alice.token).to be_present
-    end
-  end
-  
-  describe "#delete_token!" do 
-    it "sets the token value to nil" do 
-      alice = Fabricate(:user)
-      alice.delete_token!
-      expect(alice.token).to eq(nil)
-    end
   end
 end

@@ -46,10 +46,8 @@ describe UsersController do
       get :new_with_invitation_token, token: 'asdfasd'
       expect(response).to redirect_to expired_token_path
     end
-
   end
       
-
   describe "POST create" do
     context "with valid input" do
       it "creates the user" do 
@@ -85,7 +83,6 @@ describe UsersController do
         expect(Invitation.first.token).to be_nil
       end
     end
-
 
     context "with invalid input" do
       before do
