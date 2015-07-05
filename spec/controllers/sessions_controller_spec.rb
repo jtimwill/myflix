@@ -32,7 +32,7 @@ describe SessionsController do
       end
 
       it "sets the notice" do
-        expect(flash[:notice]).to be_present
+        expect(flash[:info]).to be_present
       end
     end
 

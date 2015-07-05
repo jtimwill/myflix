@@ -65,7 +65,7 @@ describe InvitationsController do
       it "sets the flash error message" do 
         set_current_user
         post :create, invitation: {recipient_email: "joe@example.com", message: "Hey join Myflix!"}
-        expect(flash[:error]).to be_present
+        expect(flash[:danger]).to be_present
       end
 
       it "sets @invitation" do 
