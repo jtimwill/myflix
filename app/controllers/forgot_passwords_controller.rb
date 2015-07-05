@@ -11,4 +11,3 @@ class ForgotPasswordsController < ApplicationController
     end
   end
 end
-

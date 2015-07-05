@@ -38,4 +38,3 @@ describe VideosController do
     end
   end
 end
-

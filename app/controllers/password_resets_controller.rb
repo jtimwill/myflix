@@ -22,4 +22,3 @@ class PasswordResetsController < ApplicationController
     end
   end
 end
-

@@ -20,4 +20,3 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
   end
 end
-

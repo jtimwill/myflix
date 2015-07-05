@@ -1,10 +1,13 @@
 class User < ActiveRecord::Base
   include Tokenable
+
   has_many :reviews, -> {order("created_at DESC")}
   has_many :queue_items, -> {order("position ASC")}
   has_many :following_relationships, class_name: "Relationship", foreign_key: :follower_id
+
   validates_presence_of :email, :password, :full_name
   validates_uniqueness_of :email
+  
   has_secure_password validations: false
 
   def normalize_queue_item_positions

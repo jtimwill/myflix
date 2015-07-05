@@ -52,4 +52,3 @@ describe ForgotPasswordsController do
     end
   end
 end
-
