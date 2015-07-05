@@ -17,6 +17,7 @@ describe ForgotPasswordsController do
     end
 
     context "with existing email" do 
+      after {ActionMailer::Base.deliveries.clear}
       before do
         Fabricate(:user, email: "joe@example.com")
         post :create, email: "joe@example.com"
