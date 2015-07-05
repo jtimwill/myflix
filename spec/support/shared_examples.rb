@@ -5,3 +5,19 @@ shared_examples "require sign in" do
     expect(response).to redirect_to sign_in_path
   end
 end
+
+shared_examples "tokenable" do 
+  describe "#generate_token!" do 
+    it "generates a random token" do 
+      object.generate_token!
+      expect(object.token).to be_present
+    end
+  end
+
+  describe "#delete_token!" do 
+    it "sets the token value to nil" do 
+      object.delete_token!
+      expect(object.token).to be_nil
+    end
+  end
+end

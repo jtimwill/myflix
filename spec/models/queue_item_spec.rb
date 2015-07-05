@@ -26,7 +26,7 @@ describe QueueItem do
       video = Fabricate(:video)
       user = Fabricate(:user)
       queue_item = Fabricate(:queue_item, user: user, video: video)
-      expect(queue_item.rating).to eq(nil)
+      expect(queue_item.rating).to be_nil
     end
   end
 

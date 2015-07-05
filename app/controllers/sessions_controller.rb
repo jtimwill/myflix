@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id 
       redirect_to home_path
-      flash[:notice] = 'You are signed in'
+      flash[:info] = 'You are signed in'
     else
       flash[:danger] = 'Invalid email or password'
       redirect_to sign_in_path

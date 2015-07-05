@@ -12,11 +12,12 @@ describe ForgotPasswordsController do
       end
 
       it "shows an error message" do 
-        expect(flash[:error]).to eq("Email cannot be blank.")
+        expect(flash[:danger]).to eq("Email cannot be blank.")
       end
     end
 
     context "with existing email" do 
+      after {ActionMailer::Base.deliveries.clear}
       before do
         Fabricate(:user, email: "joe@example.com")
         post :create, email: "joe@example.com"
@@ -25,7 +26,7 @@ describe ForgotPasswordsController do
       it "creates a user token" do 
         alice = Fabricate(:user, email: "alice@example.com")
         post :create, email: "alice@example.com"
-        expect(alice.reload.token).not_to eq(nil)
+        expect(alice.reload.token).to be_present
       end
 
       it "redirects to the forgot password confirmation page" do 
@@ -47,9 +48,8 @@ describe ForgotPasswordsController do
       end
 
       it "shows an error message" do 
-        expect(flash[:error]).to eq("There is no user with that email in the system.")
+        expect(flash[:danger]).to eq("There is no user with that email in the system.")
       end
     end
   end
 end
-

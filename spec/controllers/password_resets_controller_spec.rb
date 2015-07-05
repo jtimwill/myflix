@@ -49,7 +49,7 @@ describe PasswordResetsController do
         alice = Fabricate(:user, password: 'old_password')
         alice.update_column(:token, '12345')
         post :create, token: '12345', password: 'new_password'
-        expect(alice.reload.token).to eq(nil)
+        expect(alice.reload.token).to be_nil
       end
     end
 
@@ -88,4 +88,3 @@ describe PasswordResetsController do
     end
   end
 end
-
