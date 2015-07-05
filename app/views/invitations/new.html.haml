@@ -9,7 +9,7 @@
             .row
               .col-sm-4
                 = f.text_field :recipient_name, label: "Friend's Name"
-                = f.text_field :recipient_email, label: "Friend's Email Address"
+                = f.email_field :recipient_email, label: "Friend's Email Address"
                 = f.text_area :message, class: "span4", rows: 6, placeholder: "Please join this really cool site!", label: "Message"
         %fieldset.form-group.action
           = f.submit "Send Invitation", class: "btn btn-default"
