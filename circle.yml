@@ -13,7 +13,7 @@ deployment:
   staging:
     branch: staging
     commands:
-      - heroku maintenance:on --app infinite-waters-5515
-      - git push git@heroku.com:infinite-waters-5515.git $CIRCLE_SHA1:refs/heads/master
-      - heroku run rake db:migrate --app infinite-waters-5515
-      - heroku maintenance:off --app infinite-waters-5515
+      - heroku maintenance:on --app stark-brook-4664
+      - git push git@heroku.com:stark-brook-4664.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app stark-brook-4664
+      - heroku maintenance:off --app stark-brook-4664
