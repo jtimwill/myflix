@@ -1,5 +1,5 @@
 if Rails.env.staging? || Rails.env.production?
-require 'raven'
+  require 'raven'
 
   Raven.configure do |config|
     config.dsn = 'SENTRY_DSN'
