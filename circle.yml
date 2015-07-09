@@ -5,15 +5,15 @@ deployment:
   production:
     branch: master
     commands:
-      - heroku maintenance:on --app infinite-waters-5515
-      - heroku pg:backups capture --app infinite-waters-5515
-      - git push git@heroku.com:infinite-waters-5515.git $CIRCLE_SHA1:refs/heads/master
-      - heroku run rake db:migrate --app infinite-waters-5515
-      - heroku maintenance:off --app infinite-waters-5515
+      - heroku maintenance:on --app twill-myflix
+      - heroku pg:backups capture --app twill-myflix
+      - git push git@heroku.com:twill-myflix.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app twill-myflix
+      - heroku maintenance:off --app twill-myflix-staging
   staging:
     branch: staging
     commands:
-      - heroku maintenance:on --app stark-brook-4664
-      - git push git@heroku.com:stark-brook-4664.git $CIRCLE_SHA1:refs/heads/master
-      - heroku run rake db:migrate --app stark-brook-4664
-      - heroku maintenance:off --app stark-brook-4664
+      - heroku maintenance:on --app twill-myflix-staging
+      - git push git@heroku.com:twill-myflix-staging.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app twill-myflix-staging
+      - heroku maintenance:off --app twill-myflix-staging
