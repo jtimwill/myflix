@@ -1,0 +1,19 @@
+machine:
+  ruby:
+    version: 2.2.0
+deployment:
+  production:
+    branch: master
+    commands:
+      - heroku maintenance:on --app twill-myflix
+      - heroku pg:backups capture --app twill-myflix
+      - git push git@heroku.com:twill-myflix.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app twill-myflix
+      - heroku maintenance:off --app twill-myflix-staging
+  staging:
+    branch: staging
+    commands:
+      - heroku maintenance:on --app twill-myflix-staging
+      - git push git@heroku.com:twill-myflix-staging.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app twill-myflix-staging
+      - heroku maintenance:off --app twill-myflix-staging

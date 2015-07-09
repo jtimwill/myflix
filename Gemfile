@@ -11,12 +11,16 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'bootstrap_form'
 gem 'bcrypt'
+gem 'sidekiq'
+gem 'unicorn'
+gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 
 group :development do
   gem 'thin'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
+  gem 'foreman'
 end
 
 group :development, :test do
@@ -39,3 +43,6 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :staging do
+  gem 'rails_12factor'
+end
