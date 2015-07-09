@@ -13,7 +13,7 @@ gem 'bootstrap_form'
 gem 'bcrypt'
 gem 'sidekiq'
 gem 'unicorn'
-gem 'sentry-raven'
+gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 
 group :development do
   gem 'thin'
