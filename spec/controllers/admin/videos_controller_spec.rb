@@ -26,7 +26,7 @@ describe Admin::VideosController do
     it "sets the flash error message for regular user" do 
       set_current_user
       get :new
-      expect(flash[:error]).to be_present
+      expect(flash[:danger]).to be_present
     end
   end
 
