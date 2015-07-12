@@ -10,7 +10,7 @@ Myflix::Application.configure do
   config.action_controller.perform_caching = false
 
   config.action_dispatch.show_exceptions = false
-
+  config.active_record.raise_in_transactional_callbacks = true
   config.action_controller.allow_forgery_protection = false
 
   config.action_mailer.delivery_method = :test
