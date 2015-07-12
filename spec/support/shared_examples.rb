@@ -8,7 +8,7 @@ end
 
 shared_examples "require admin" do 
   it "redirects to the home page" do 
-    session[:user_id] = Fabricate(:user)
+    session[:user_id] = Fabricate(:user).id
     action
     expect(response).to redirect_to home_path
   end
