@@ -16,6 +16,7 @@ gem 'unicorn'
 gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'carrierwave-aws'
 
 group :development do
   gem 'thin'
@@ -43,5 +44,4 @@ end
 
 group :production, :staging do
   gem 'rails_12factor'
-  gem 'fog-aws'
 end
