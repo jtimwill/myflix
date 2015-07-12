@@ -7,7 +7,7 @@ CarrierWave.configure do |config|
       aws_access_key_id:     ENV['AWS_ACCESS_KEY'],
       aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
     }
-    config.aws_bucket  = 'name_of_directory'
+    config.aws_bucket  = ENV['S3_BUCKET_NAME']
   else
     config.storage = :file
     config.enable_processing = Rails.env.development?
