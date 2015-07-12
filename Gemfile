@@ -15,9 +15,9 @@ gem 'sidekiq'
 gem 'unicorn'
 gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 gem 'carrierwave'
-gem 'mini_magick'
 gem 'carrierwave-aws'
-gem 'fog'
+gem 'mini_magick'
+
 
 group :development do
   gem 'thin'
