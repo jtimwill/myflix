@@ -19,7 +19,6 @@ gem 'carrierwave-aws'
 gem 'mini_magick'
 gem 'fog'
 
-
 group :development do
   gem 'thin'
   gem 'better_errors'
