@@ -16,3 +16,5 @@
 
 # Ignore the pg database.
 config/database.yml
+# Ignore application configuration
+/config/application.yml
