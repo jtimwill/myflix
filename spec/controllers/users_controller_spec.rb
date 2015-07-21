@@ -50,6 +50,11 @@ describe UsersController do
       
   describe "POST create" do
     context "with valid input" do
+      let(:charge) {double(:charge, successful?: true)}
+      before do 
+        StripeWrapper::Charge.should_receive(:create)and_return(charge)
+      end
+
       it "creates the user" do 
         post :create, user: Fabricate.attributes_for(:user)
         expect(User.count).to eq(1)
@@ -103,6 +108,10 @@ describe UsersController do
     end
 
     context "sending emails" do
+      before do 
+        StripeWrapper::Charge.stub(:create)
+      end
+      
       after {ActionMailer::Base.deliveries.clear}
 
       it "sends out an email to a user with valid inputs" do
