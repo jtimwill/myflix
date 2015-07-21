@@ -50,10 +50,14 @@ describe UsersController do
       
   describe "POST create" do
     context "with valid input" do
-      let(:charge) {double(:charge, successful?: true)}
       before do 
-        StripeWrapper::Charge.should_receive(:create)and_return(charge)
+        StripeWrapper::Charge.stub(:create)
       end
+      
+      # let(:charge) {double(:charge, successful?: true)}
+      # before do 
+      #   StripeWrapper::Charge.should_receive(:create).and_return(charge)
+      # end
 
       it "creates the user" do 
         post :create, user: Fabricate.attributes_for(:user)
@@ -88,6 +92,29 @@ describe UsersController do
         expect(Invitation.first.token).to be_nil
       end
     end
+
+    # context "valid personal info and declined card" do 
+    #   it "does not create a new user record" do 
+    #     charge = double(:charge, successful?: false, error_message: "Your card was declined.")
+    #     StripeWrapper::Charge.should_receive(:create).and_return(charge)
+    #     post :create, user: Fabricate.attributes_for(:user), stripeToken: '1231241'
+    #     expect(User.count).to eq(0)
+    #   end
+
+    #   it "renders the new template" do 
+    #     charge = double(:charge, successful?: false, error_message: "Your card was declined.")
+    #     StripeWrapper::Charge.should_receive(:create).and_return(charge)
+    #     post :create, user: Fabricate.attributes_for(:user), stripeToken: '1231241'
+    #     expect(User.count).to render_template :new
+    #   end
+
+    #   it "sets the flash error message" do 
+    #     charge = double(:charge, successful?: false, error_message: "Your card was declined.")
+    #     StripeWrapper::Charge.should_receive(:create).and_return(charge)
+    #     post :create, user: Fabricate.attributes_for(:user), stripeToken: '1231241'
+    #     expect(flash[:error]).to be_present
+    #   end
+    # end
 
     context "with invalid input" do
       before do
