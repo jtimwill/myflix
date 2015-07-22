@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'User invites friend' do 
-  scenario 'User successfully invites friend and invitation is accepted', { js: true, vcr: true } do 
+  scenario 'User successfully invites friend and invitation is accepted', { :js => true, :vcr => true } do 
     alice = Fabricate(:user)
     sign_in(alice)
 
@@ -34,6 +34,7 @@ feature 'User invites friend' do
     select "7 - July", from: "date_month"
     select "2018", from: "date_year"
     click_button "Sign Up"
+    sleep 3
   end
 
   def friend_signs_in

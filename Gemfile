@@ -44,7 +44,7 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'selenium-webdriver'
-  gem 'database_cleaner'
+  gem 'database_cleaner', :git => "https://github.com/DatabaseCleaner/database_cleaner"
 end
 
 group :production, :staging do
