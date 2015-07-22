@@ -35,4 +35,20 @@ require 'spec_helper'
       expect(Video.search_by_title("")).to eq([])
     end
   end
+
+  describe "rating" do 
+    let(:user) {Fabricate(:user)}
+    let(:video) {Fabricate(:video)}
+
+    it "returns the average rating of a video to the nearest tenth" do 
+      Fabricate(:review, user: user, video: video, rating: 1)
+      Fabricate(:review, user: user, video: video, rating: 3)
+      Fabricate(:review, user: user, video: video, rating: 1)
+      expect(video.rating).to eq(1.7)
+    end
+
+    it "returns nil when a rating is not present" do 
+      expect(video.rating).to be_nil
+    end
+  end
 end
