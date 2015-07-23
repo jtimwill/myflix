@@ -41,9 +41,8 @@ require 'spec_helper'
     let(:video) {Fabricate(:video)}
 
     it "returns the average rating of a video to the nearest tenth" do 
-      Fabricate(:review, user: user, video: video, rating: 1)
+      2.times {Fabricate(:review, user: user, video: video, rating: 1)}
       Fabricate(:review, user: user, video: video, rating: 3)
-      Fabricate(:review, user: user, video: video, rating: 1)
       expect(video.rating).to eq(1.7)
     end
 
