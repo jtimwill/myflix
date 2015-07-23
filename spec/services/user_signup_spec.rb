@@ -62,18 +62,17 @@ describe UserSignup do
     end
 
     context "with invalid personal info" do
+      before{UserSignup.new(User.new(email: "kevin@example.com")).sign_up('1231241', nil)}
+      
       it "does not create a user" do 
-        UserSignup.new(User.new(email: "kevin@example.com")).sign_up('1231241', nil)
         expect(User.count).to eq(0)
       end
 
       it "does not charge the card" do 
         expect(StripeWrapper::Charge).not_to receive(:create)
-        UserSignup.new(User.new(email: "kevin@example.com")).sign_up('1231241', nil)
       end
 
       it "does not send out email with invalid inputs" do
-        UserSignup.new(User.new(email: "kevin@example.com")).sign_up('1231241', nil)
         expect(ActionMailer::Base.deliveries).to be_empty
       end
     end
