@@ -19,8 +19,8 @@ http_interactions:
       - application/x-www-form-urlencoded
       X-Stripe-Client-User-Agent:
       - '{"bindings_version":"1.23.0","lang":"ruby","lang_version":"2.2.0 p0 (2014-12-25)","platform":"x86_64-darwin14","engine":"ruby","publisher":"stripe","uname":"Darwin
-        Tims-MacBook-Pro.local 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04
-        PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64","hostname":"Tims-MacBook-Pro.local"}'
+        Tims-MBP.attlocal.net 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04
+        PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64","hostname":"Tims-MBP.attlocal.net"}'
       Content-Length:
       - '81'
   response:
@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 26 Jul 2015 14:04:02 GMT
+      - Sun, 26 Jul 2015 17:45:52 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -49,7 +49,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_6gC7lc9BA1gFtT
+      - req_6gFhLbINMhA55H
       Stripe-Version:
       - '2015-07-13'
       Strict-Transport-Security:
@@ -58,14 +58,14 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_16SpjSJ4R6fOT5ApPiIxvg9R",
+          "id": "tok_16StC8J4R6fOT5ApIh9DHXuE",
           "livemode": false,
-          "created": 1437919442,
+          "created": 1437932752,
           "used": false,
           "object": "token",
           "type": "card",
           "card": {
-            "id": "card_16SpjSJ4R6fOT5ApaWG2VkdB",
+            "id": "card_16StC7J4R6fOT5Aparzy8ThH",
             "object": "card",
             "last4": "4242",
             "brand": "Visa",
@@ -88,16 +88,16 @@ http_interactions:
             "dynamic_last4": null,
             "metadata": {}
           },
-          "client_ip": "68.58.204.37"
+          "client_ip": "75.38.163.36"
         }
     http_version: 
-  recorded_at: Sun, 26 Jul 2015 14:04:02 GMT
+  recorded_at: Sun, 26 Jul 2015 17:45:52 GMT
 - request:
     method: post
     uri: https://api.stripe.com/v1/customers
     body:
       encoding: US-ASCII
-      string: card=tok_16SpjSJ4R6fOT5ApPiIxvg9R&email=claudia_murazik%40dubuque.name&plan=base
+      string: source=tok_16StC8J4R6fOT5ApIh9DHXuE&email=granville%40hilll.name&plan=base
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -111,10 +111,10 @@ http_interactions:
       - application/x-www-form-urlencoded
       X-Stripe-Client-User-Agent:
       - '{"bindings_version":"1.23.0","lang":"ruby","lang_version":"2.2.0 p0 (2014-12-25)","platform":"x86_64-darwin14","engine":"ruby","publisher":"stripe","uname":"Darwin
-        Tims-MacBook-Pro.local 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04
-        PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64","hostname":"Tims-MacBook-Pro.local"}'
+        Tims-MBP.attlocal.net 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04
+        PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64","hostname":"Tims-MBP.attlocal.net"}'
       Content-Length:
-      - '80'
+      - '74'
   response:
     status:
       code: 200
@@ -123,11 +123,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 26 Jul 2015 14:04:05 GMT
+      - Sun, 26 Jul 2015 17:45:52 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '2350'
+      - '2342'
       Connection:
       - keep-alive
       Access-Control-Allow-Credentials:
@@ -141,7 +141,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_6gC7fvDikOYc4j
+      - req_6gFhammbQcy8hM
       Stripe-Version:
       - '2015-07-13'
       Strict-Transport-Security:
@@ -151,21 +151,21 @@ http_interactions:
       string: |
         {
           "object": "customer",
-          "created": 1437919444,
-          "id": "cus_6gC7wme6Z5SO7w",
+          "created": 1437932752,
+          "id": "cus_6gFhun7lJvTFnb",
           "livemode": false,
           "description": null,
-          "email": "claudia_murazik@dubuque.name",
+          "email": "granville@hilll.name",
           "delinquent": false,
           "metadata": {},
           "subscriptions": {
             "object": "list",
             "total_count": 1,
             "has_more": false,
-            "url": "/v1/customers/cus_6gC7wme6Z5SO7w/subscriptions",
+            "url": "/v1/customers/cus_6gFhun7lJvTFnb/subscriptions",
             "data": [
               {
-                "id": "sub_6gC7PHwe5kf8uy",
+                "id": "sub_6gFh5qpGuIPPEn",
                 "plan": {
                   "interval": "month",
                   "name": "the base plan",
@@ -181,12 +181,12 @@ http_interactions:
                   "statement_descriptor": null
                 },
                 "object": "subscription",
-                "start": 1437919444,
+                "start": 1437932752,
                 "status": "active",
-                "customer": "cus_6gC7wme6Z5SO7w",
+                "customer": "cus_6gFhun7lJvTFnb",
                 "cancel_at_period_end": false,
-                "current_period_start": 1437919444,
-                "current_period_end": 1440597844,
+                "current_period_start": 1437932752,
+                "current_period_end": 1440611152,
                 "ended_at": null,
                 "trial_start": null,
                 "trial_end": null,
@@ -206,10 +206,10 @@ http_interactions:
             "object": "list",
             "total_count": 1,
             "has_more": false,
-            "url": "/v1/customers/cus_6gC7wme6Z5SO7w/sources",
+            "url": "/v1/customers/cus_6gFhun7lJvTFnb/sources",
             "data": [
               {
-                "id": "card_16SpjSJ4R6fOT5ApaWG2VkdB",
+                "id": "card_16StC7J4R6fOT5Aparzy8ThH",
                 "object": "card",
                 "last4": "4242",
                 "brand": "Visa",
@@ -231,12 +231,12 @@ http_interactions:
                 "tokenization_method": null,
                 "dynamic_last4": null,
                 "metadata": {},
-                "customer": "cus_6gC7wme6Z5SO7w"
+                "customer": "cus_6gFhun7lJvTFnb"
               }
             ]
           },
-          "default_source": "card_16SpjSJ4R6fOT5ApaWG2VkdB"
+          "default_source": "card_16StC7J4R6fOT5Aparzy8ThH"
         }
     http_version: 
-  recorded_at: Sun, 26 Jul 2015 14:04:05 GMT
+  recorded_at: Sun, 26 Jul 2015 17:45:52 GMT
 recorded_with: VCR 2.9.3

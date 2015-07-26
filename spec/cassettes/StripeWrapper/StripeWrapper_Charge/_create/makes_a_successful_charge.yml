@@ -19,8 +19,8 @@ http_interactions:
       - application/x-www-form-urlencoded
       X-Stripe-Client-User-Agent:
       - '{"bindings_version":"1.23.0","lang":"ruby","lang_version":"2.2.0 p0 (2014-12-25)","platform":"x86_64-darwin14","engine":"ruby","publisher":"stripe","uname":"Darwin
-        Tims-MacBook-Pro.local 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04
-        PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64","hostname":"Tims-MacBook-Pro.local"}'
+        Tims-MBP.attlocal.net 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04
+        PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64","hostname":"Tims-MBP.attlocal.net"}'
       Content-Length:
       - '81'
   response:
@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 26 Jul 2015 14:04:09 GMT
+      - Sun, 26 Jul 2015 17:45:55 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -49,7 +49,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_6gC7zXgJQy3og4
+      - req_6gFhQgzwofg2ST
       Stripe-Version:
       - '2015-07-13'
       Strict-Transport-Security:
@@ -58,14 +58,14 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_16SpjZJ4R6fOT5Ap3DTvuEu6",
+          "id": "tok_16StCBJ4R6fOT5Ap6oDDiCK1",
           "livemode": false,
-          "created": 1437919449,
+          "created": 1437932755,
           "used": false,
           "object": "token",
           "type": "card",
           "card": {
-            "id": "card_16SpjZJ4R6fOT5ApW5b4Ritb",
+            "id": "card_16StCBJ4R6fOT5AplJ4VDtye",
             "object": "card",
             "last4": "4242",
             "brand": "Visa",
@@ -88,16 +88,16 @@ http_interactions:
             "dynamic_last4": null,
             "metadata": {}
           },
-          "client_ip": "68.58.204.37"
+          "client_ip": "75.38.163.36"
         }
     http_version: 
-  recorded_at: Sun, 26 Jul 2015 14:04:09 GMT
+  recorded_at: Sun, 26 Jul 2015 17:45:55 GMT
 - request:
     method: post
     uri: https://api.stripe.com/v1/charges
     body:
       encoding: US-ASCII
-      string: amount=999&currency=usd&source=tok_16SpjZJ4R6fOT5Ap3DTvuEu6&description=a%20valid%20charge
+      string: amount=999&currency=usd&source=tok_16StCBJ4R6fOT5Ap6oDDiCK1&description=a%20valid%20charge
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -111,8 +111,8 @@ http_interactions:
       - application/x-www-form-urlencoded
       X-Stripe-Client-User-Agent:
       - '{"bindings_version":"1.23.0","lang":"ruby","lang_version":"2.2.0 p0 (2014-12-25)","platform":"x86_64-darwin14","engine":"ruby","publisher":"stripe","uname":"Darwin
-        Tims-MacBook-Pro.local 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04
-        PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64","hostname":"Tims-MacBook-Pro.local"}'
+        Tims-MBP.attlocal.net 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04
+        PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64","hostname":"Tims-MBP.attlocal.net"}'
       Content-Length:
       - '90'
   response:
@@ -123,7 +123,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 26 Jul 2015 14:04:10 GMT
+      - Sun, 26 Jul 2015 17:45:55 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -141,7 +141,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_6gC7JknRzsLTN1
+      - req_6gFhcQjyaxMQVX
       Stripe-Version:
       - '2015-07-13'
       Strict-Transport-Security:
@@ -150,9 +150,9 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "ch_16SpjaJ4R6fOT5ApZuAKx0lC",
+          "id": "ch_16StCBJ4R6fOT5ApcwusD67l",
           "object": "charge",
-          "created": 1437919450,
+          "created": 1437932755,
           "livemode": false,
           "paid": true,
           "status": "succeeded",
@@ -160,7 +160,7 @@ http_interactions:
           "currency": "usd",
           "refunded": false,
           "source": {
-            "id": "card_16SpjZJ4R6fOT5ApW5b4Ritb",
+            "id": "card_16StCBJ4R6fOT5AplJ4VDtye",
             "object": "card",
             "last4": "4242",
             "brand": "Visa",
@@ -185,7 +185,7 @@ http_interactions:
             "customer": null
           },
           "captured": true,
-          "balance_transaction": "txn_16SpjaJ4R6fOT5ApDRFdXUDt",
+          "balance_transaction": "txn_16StCBJ4R6fOT5Apaf9UNfyO",
           "failure_message": null,
           "failure_code": null,
           "amount_refunded": 0,
@@ -205,10 +205,10 @@ http_interactions:
             "object": "list",
             "total_count": 0,
             "has_more": false,
-            "url": "/v1/charges/ch_16SpjaJ4R6fOT5ApZuAKx0lC/refunds",
+            "url": "/v1/charges/ch_16StCBJ4R6fOT5ApcwusD67l/refunds",
             "data": []
           }
         }
     http_version: 
-  recorded_at: Sun, 26 Jul 2015 14:04:10 GMT
+  recorded_at: Sun, 26 Jul 2015 17:45:55 GMT
 recorded_with: VCR 2.9.3

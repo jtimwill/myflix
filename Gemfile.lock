@@ -272,6 +272,9 @@ GEM
     stripe (1.23.0)
       json (~> 1.8.1)
       rest-client (~> 1.4)
+    stripe_event (1.5.0)
+      activesupport (>= 3.1)
+      stripe (~> 1.6)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -338,6 +341,7 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   stripe
+  stripe_event
   thin
   uglifier
   unicorn
