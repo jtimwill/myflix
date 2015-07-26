@@ -25,7 +25,7 @@ module StripeWrapper
       @response.present?
     end
   end
-  
+
   class Customer
     attr_reader :response, :error_message
 
@@ -37,7 +37,7 @@ module StripeWrapper
     def self.create(options={})
       begin
         response = Stripe::Customer.create(
-          card: options[:card],
+          source: options[:source],
           email: options[:user].email,
           plan: "base"
         )
