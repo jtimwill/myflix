@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 26 Jul 2015 14:04:09 GMT
+      - Sun, 26 Jul 2015 14:04:02 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -49,7 +49,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_6gC7zXgJQy3og4
+      - req_6gC7lc9BA1gFtT
       Stripe-Version:
       - '2015-07-13'
       Strict-Transport-Security:
@@ -58,14 +58,14 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_16SpjZJ4R6fOT5Ap3DTvuEu6",
+          "id": "tok_16SpjSJ4R6fOT5ApPiIxvg9R",
           "livemode": false,
-          "created": 1437919449,
+          "created": 1437919442,
           "used": false,
           "object": "token",
           "type": "card",
           "card": {
-            "id": "card_16SpjZJ4R6fOT5ApW5b4Ritb",
+            "id": "card_16SpjSJ4R6fOT5ApaWG2VkdB",
             "object": "card",
             "last4": "4242",
             "brand": "Visa",
@@ -91,13 +91,13 @@ http_interactions:
           "client_ip": "68.58.204.37"
         }
     http_version: 
-  recorded_at: Sun, 26 Jul 2015 14:04:09 GMT
+  recorded_at: Sun, 26 Jul 2015 14:04:02 GMT
 - request:
     method: post
-    uri: https://api.stripe.com/v1/charges
+    uri: https://api.stripe.com/v1/customers
     body:
       encoding: US-ASCII
-      string: amount=999&currency=usd&source=tok_16SpjZJ4R6fOT5Ap3DTvuEu6&description=a%20valid%20charge
+      string: card=tok_16SpjSJ4R6fOT5ApPiIxvg9R&email=claudia_murazik%40dubuque.name&plan=base
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -114,7 +114,7 @@ http_interactions:
         Tims-MacBook-Pro.local 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04
         PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64","hostname":"Tims-MacBook-Pro.local"}'
       Content-Length:
-      - '90'
+      - '80'
   response:
     status:
       code: 200
@@ -123,11 +123,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 26 Jul 2015 14:04:10 GMT
+      - Sun, 26 Jul 2015 14:04:05 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '1435'
+      - '2350'
       Connection:
       - keep-alive
       Access-Control-Allow-Credentials:
@@ -141,7 +141,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_6gC7JknRzsLTN1
+      - req_6gC7fvDikOYc4j
       Stripe-Version:
       - '2015-07-13'
       Strict-Transport-Security:
@@ -150,65 +150,93 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "ch_16SpjaJ4R6fOT5ApZuAKx0lC",
-          "object": "charge",
-          "created": 1437919450,
+          "object": "customer",
+          "created": 1437919444,
+          "id": "cus_6gC7wme6Z5SO7w",
           "livemode": false,
-          "paid": true,
-          "status": "succeeded",
-          "amount": 999,
-          "currency": "usd",
-          "refunded": false,
-          "source": {
-            "id": "card_16SpjZJ4R6fOT5ApW5b4Ritb",
-            "object": "card",
-            "last4": "4242",
-            "brand": "Visa",
-            "funding": "credit",
-            "exp_month": 6,
-            "exp_year": 2018,
-            "fingerprint": "QtkPXGspjizkswkR",
-            "country": "US",
-            "name": null,
-            "address_line1": null,
-            "address_line2": null,
-            "address_city": null,
-            "address_state": null,
-            "address_zip": null,
-            "address_country": null,
-            "cvc_check": "pass",
-            "address_line1_check": null,
-            "address_zip_check": null,
-            "tokenization_method": null,
-            "dynamic_last4": null,
-            "metadata": {},
-            "customer": null
-          },
-          "captured": true,
-          "balance_transaction": "txn_16SpjaJ4R6fOT5ApDRFdXUDt",
-          "failure_message": null,
-          "failure_code": null,
-          "amount_refunded": 0,
-          "customer": null,
-          "invoice": null,
-          "description": "a valid charge",
-          "dispute": null,
+          "description": null,
+          "email": "claudia_murazik@dubuque.name",
+          "delinquent": false,
           "metadata": {},
-          "statement_descriptor": null,
-          "fraud_details": {},
-          "receipt_email": null,
-          "receipt_number": null,
-          "shipping": null,
-          "destination": null,
-          "application_fee": null,
-          "refunds": {
+          "subscriptions": {
             "object": "list",
-            "total_count": 0,
+            "total_count": 1,
             "has_more": false,
-            "url": "/v1/charges/ch_16SpjaJ4R6fOT5ApZuAKx0lC/refunds",
-            "data": []
-          }
+            "url": "/v1/customers/cus_6gC7wme6Z5SO7w/subscriptions",
+            "data": [
+              {
+                "id": "sub_6gC7PHwe5kf8uy",
+                "plan": {
+                  "interval": "month",
+                  "name": "the base plan",
+                  "created": 1437913801,
+                  "amount": 999,
+                  "currency": "usd",
+                  "id": "base",
+                  "object": "plan",
+                  "livemode": false,
+                  "interval_count": 1,
+                  "trial_period_days": null,
+                  "metadata": {},
+                  "statement_descriptor": null
+                },
+                "object": "subscription",
+                "start": 1437919444,
+                "status": "active",
+                "customer": "cus_6gC7wme6Z5SO7w",
+                "cancel_at_period_end": false,
+                "current_period_start": 1437919444,
+                "current_period_end": 1440597844,
+                "ended_at": null,
+                "trial_start": null,
+                "trial_end": null,
+                "canceled_at": null,
+                "quantity": 1,
+                "application_fee_percent": null,
+                "discount": null,
+                "tax_percent": null,
+                "metadata": {}
+              }
+            ]
+          },
+          "discount": null,
+          "account_balance": 0,
+          "currency": "usd",
+          "sources": {
+            "object": "list",
+            "total_count": 1,
+            "has_more": false,
+            "url": "/v1/customers/cus_6gC7wme6Z5SO7w/sources",
+            "data": [
+              {
+                "id": "card_16SpjSJ4R6fOT5ApaWG2VkdB",
+                "object": "card",
+                "last4": "4242",
+                "brand": "Visa",
+                "funding": "credit",
+                "exp_month": 6,
+                "exp_year": 2018,
+                "fingerprint": "QtkPXGspjizkswkR",
+                "country": "US",
+                "name": null,
+                "address_line1": null,
+                "address_line2": null,
+                "address_city": null,
+                "address_state": null,
+                "address_zip": null,
+                "address_country": null,
+                "cvc_check": "pass",
+                "address_line1_check": null,
+                "address_zip_check": null,
+                "tokenization_method": null,
+                "dynamic_last4": null,
+                "metadata": {},
+                "customer": "cus_6gC7wme6Z5SO7w"
+              }
+            ]
+          },
+          "default_source": "card_16SpjSJ4R6fOT5ApaWG2VkdB"
         }
     http_version: 
-  recorded_at: Sun, 26 Jul 2015 14:04:10 GMT
+  recorded_at: Sun, 26 Jul 2015 14:04:05 GMT
 recorded_with: VCR 2.9.3

@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.stripe.com/v1/charges
+    uri: https://api.stripe.com/v1/customers
     body:
       encoding: US-ASCII
-      string: amount=999&currency=usd&source=tok_16RB0IJ4R6fOT5ApI5C1vVMN&description=Sign%20up%20charge%20for%20john%40example.com
+      string: email=john%40example.com&plan=base
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -22,20 +22,20 @@ http_interactions:
         Tims-MacBook-Pro.local 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04
         PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64","hostname":"Tims-MacBook-Pro.local"}'
       Content-Length:
-      - '117'
+      - '34'
   response:
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
     headers:
       Server:
       - nginx
       Date:
-      - Wed, 22 Jul 2015 00:22:35 GMT
+      - Sun, 26 Jul 2015 14:03:59 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '1456'
+      - '120'
       Connection:
       - keep-alive
       Access-Control-Allow-Credentials:
@@ -49,74 +49,18 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_6eTy8tK9JepyZN
+      - req_6gC7pnWih5W2t2
       Stripe-Version:
       - '2015-07-13'
-      Strict-Transport-Security:
-      - max-age=31556926; includeSubDomains
     body:
       encoding: UTF-8
       string: |
         {
-          "id": "ch_16RB0JJ4R6fOT5Ap4U7gVkA9",
-          "object": "charge",
-          "created": 1437524555,
-          "livemode": false,
-          "paid": true,
-          "status": "succeeded",
-          "amount": 999,
-          "currency": "usd",
-          "refunded": false,
-          "source": {
-            "id": "card_16RB0IJ4R6fOT5ApA2yhdudB",
-            "object": "card",
-            "last4": "4242",
-            "brand": "Visa",
-            "funding": "credit",
-            "exp_month": 7,
-            "exp_year": 2018,
-            "fingerprint": "QtkPXGspjizkswkR",
-            "country": "US",
-            "name": null,
-            "address_line1": null,
-            "address_line2": null,
-            "address_city": null,
-            "address_state": null,
-            "address_zip": null,
-            "address_country": null,
-            "cvc_check": "pass",
-            "address_line1_check": null,
-            "address_zip_check": null,
-            "tokenization_method": null,
-            "dynamic_last4": null,
-            "metadata": {},
-            "customer": null
-          },
-          "captured": true,
-          "balance_transaction": "txn_16RB0JJ4R6fOT5ApugFGZHxE",
-          "failure_message": null,
-          "failure_code": null,
-          "amount_refunded": 0,
-          "customer": null,
-          "invoice": null,
-          "description": "Sign up charge for john@example.com",
-          "dispute": null,
-          "metadata": {},
-          "statement_descriptor": null,
-          "fraud_details": {},
-          "receipt_email": null,
-          "receipt_number": null,
-          "shipping": null,
-          "destination": null,
-          "application_fee": null,
-          "refunds": {
-            "object": "list",
-            "total_count": 0,
-            "has_more": false,
-            "url": "/v1/charges/ch_16RB0JJ4R6fOT5Ap4U7gVkA9/refunds",
-            "data": []
+          "error": {
+            "type": "invalid_request_error",
+            "message": "This customer has no attached payment source"
           }
         }
     http_version: 
-  recorded_at: Wed, 22 Jul 2015 00:22:35 GMT
+  recorded_at: Sun, 26 Jul 2015 14:03:59 GMT
 recorded_with: VCR 2.9.3
