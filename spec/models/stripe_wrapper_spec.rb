@@ -56,8 +56,9 @@ describe StripeWrapper do
 
   describe StripeWrapper::Customer do
     describe ".create", :vcr do
+      let(:alice) {Fabricate(:user)}
+
       it "creates a customer with valid card" do
-        alice = Fabricate(:user)
         response = StripeWrapper::Customer.create(
           user: alice,
           source: valid_token
@@ -66,7 +67,6 @@ describe StripeWrapper do
       end
 
       it "does not create a customer with declined card" do
-        alice = Fabricate(:user)
         response = StripeWrapper::Customer.create(
           user: alice,
           source: declined_card_token
@@ -75,7 +75,6 @@ describe StripeWrapper do
       end
 
       it "returns the error message for declined card" do
-        alice = Fabricate(:user)
         response = StripeWrapper::Customer.create(
           user: alice,
           source: declined_card_token
@@ -84,7 +83,6 @@ describe StripeWrapper do
       end
 
       it "returns the customer token for a valid card" do
-        alice = Fabricate(:user)
         response = StripeWrapper::Customer.create(
           user: alice,
           source: valid_token
