@@ -2,20 +2,21 @@ Myflix::Application.routes.draw do
   root to: 'pages#front'
   get '/home', to: 'videos#index'
 
-  resources :videos, only: [:show] do 
+  resources :videos, only: [:show] do
     collection do
       post :search, to: 'videos#search'
     end
     resources :reviews, only: [:create]
   end
 
-  namespace :admin do 
+  namespace :admin do
     resources :videos, only: [:new, :create]
+    resources :payments, only: [:index]
   end
 
   get 'my_queue', to: 'queue_items#index'
   post 'update_queue', to: 'queue_items#update_queue'
-  
+
   get 'ui(/:action)', controller: 'ui'
   get 'register', to: 'users#new'
   get 'register/:token', to: "users#new_with_invitation_token", as: 'register_with_token'
@@ -33,4 +34,5 @@ Myflix::Application.routes.draw do
   resources :password_resets, only: [:show, :create]
   get 'expired_token', to: 'pages#expired_token'
   resources :invitations, only: [:new, :create]
+  mount StripeEvent::Engine => '/stripe_events'
 end

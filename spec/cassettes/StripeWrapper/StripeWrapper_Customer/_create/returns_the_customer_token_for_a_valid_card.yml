@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 26 Jul 2015 17:45:55 GMT
+      - Sun, 26 Jul 2015 17:45:48 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -49,7 +49,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_6gFhQgzwofg2ST
+      - req_6gFhsXMwEBzbze
       Stripe-Version:
       - '2015-07-13'
       Strict-Transport-Security:
@@ -58,14 +58,14 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_16StCBJ4R6fOT5Ap6oDDiCK1",
+          "id": "tok_16StC4J4R6fOT5ApuLejfsCI",
           "livemode": false,
-          "created": 1437932755,
+          "created": 1437932748,
           "used": false,
           "object": "token",
           "type": "card",
           "card": {
-            "id": "card_16StCBJ4R6fOT5AplJ4VDtye",
+            "id": "card_16StC4J4R6fOT5ApGH3t8rJo",
             "object": "card",
             "last4": "4242",
             "brand": "Visa",
@@ -91,13 +91,13 @@ http_interactions:
           "client_ip": "75.38.163.36"
         }
     http_version: 
-  recorded_at: Sun, 26 Jul 2015 17:45:55 GMT
+  recorded_at: Sun, 26 Jul 2015 17:45:48 GMT
 - request:
     method: post
-    uri: https://api.stripe.com/v1/charges
+    uri: https://api.stripe.com/v1/customers
     body:
       encoding: US-ASCII
-      string: amount=999&currency=usd&source=tok_16StCBJ4R6fOT5Ap6oDDiCK1&description=a%20valid%20charge
+      string: source=tok_16StC4J4R6fOT5ApuLejfsCI&email=cleora_osinski%40spenceroberbrunner.name&plan=base
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -114,7 +114,7 @@ http_interactions:
         Tims-MBP.attlocal.net 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04
         PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64","hostname":"Tims-MBP.attlocal.net"}'
       Content-Length:
-      - '90'
+      - '92'
   response:
     status:
       code: 200
@@ -123,11 +123,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 26 Jul 2015 17:45:55 GMT
+      - Sun, 26 Jul 2015 17:45:49 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '1435'
+      - '2360'
       Connection:
       - keep-alive
       Access-Control-Allow-Credentials:
@@ -141,7 +141,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_6gFhcQjyaxMQVX
+      - req_6gFh66lqBAyPlU
       Stripe-Version:
       - '2015-07-13'
       Strict-Transport-Security:
@@ -150,65 +150,93 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "ch_16StCBJ4R6fOT5ApcwusD67l",
-          "object": "charge",
-          "created": 1437932755,
+          "object": "customer",
+          "created": 1437932748,
+          "id": "cus_6gFh3K8CGL4N88",
           "livemode": false,
-          "paid": true,
-          "status": "succeeded",
-          "amount": 999,
-          "currency": "usd",
-          "refunded": false,
-          "source": {
-            "id": "card_16StCBJ4R6fOT5AplJ4VDtye",
-            "object": "card",
-            "last4": "4242",
-            "brand": "Visa",
-            "funding": "credit",
-            "exp_month": 6,
-            "exp_year": 2018,
-            "fingerprint": "QtkPXGspjizkswkR",
-            "country": "US",
-            "name": null,
-            "address_line1": null,
-            "address_line2": null,
-            "address_city": null,
-            "address_state": null,
-            "address_zip": null,
-            "address_country": null,
-            "cvc_check": "pass",
-            "address_line1_check": null,
-            "address_zip_check": null,
-            "tokenization_method": null,
-            "dynamic_last4": null,
-            "metadata": {},
-            "customer": null
-          },
-          "captured": true,
-          "balance_transaction": "txn_16StCBJ4R6fOT5Apaf9UNfyO",
-          "failure_message": null,
-          "failure_code": null,
-          "amount_refunded": 0,
-          "customer": null,
-          "invoice": null,
-          "description": "a valid charge",
-          "dispute": null,
+          "description": null,
+          "email": "cleora_osinski@spenceroberbrunner.name",
+          "delinquent": false,
           "metadata": {},
-          "statement_descriptor": null,
-          "fraud_details": {},
-          "receipt_email": null,
-          "receipt_number": null,
-          "shipping": null,
-          "destination": null,
-          "application_fee": null,
-          "refunds": {
+          "subscriptions": {
             "object": "list",
-            "total_count": 0,
+            "total_count": 1,
             "has_more": false,
-            "url": "/v1/charges/ch_16StCBJ4R6fOT5ApcwusD67l/refunds",
-            "data": []
-          }
+            "url": "/v1/customers/cus_6gFh3K8CGL4N88/subscriptions",
+            "data": [
+              {
+                "id": "sub_6gFhPZK5F1nbVi",
+                "plan": {
+                  "interval": "month",
+                  "name": "the base plan",
+                  "created": 1437913801,
+                  "amount": 999,
+                  "currency": "usd",
+                  "id": "base",
+                  "object": "plan",
+                  "livemode": false,
+                  "interval_count": 1,
+                  "trial_period_days": null,
+                  "metadata": {},
+                  "statement_descriptor": null
+                },
+                "object": "subscription",
+                "start": 1437932748,
+                "status": "active",
+                "customer": "cus_6gFh3K8CGL4N88",
+                "cancel_at_period_end": false,
+                "current_period_start": 1437932748,
+                "current_period_end": 1440611148,
+                "ended_at": null,
+                "trial_start": null,
+                "trial_end": null,
+                "canceled_at": null,
+                "quantity": 1,
+                "application_fee_percent": null,
+                "discount": null,
+                "tax_percent": null,
+                "metadata": {}
+              }
+            ]
+          },
+          "discount": null,
+          "account_balance": 0,
+          "currency": "usd",
+          "sources": {
+            "object": "list",
+            "total_count": 1,
+            "has_more": false,
+            "url": "/v1/customers/cus_6gFh3K8CGL4N88/sources",
+            "data": [
+              {
+                "id": "card_16StC4J4R6fOT5ApGH3t8rJo",
+                "object": "card",
+                "last4": "4242",
+                "brand": "Visa",
+                "funding": "credit",
+                "exp_month": 6,
+                "exp_year": 2018,
+                "fingerprint": "QtkPXGspjizkswkR",
+                "country": "US",
+                "name": null,
+                "address_line1": null,
+                "address_line2": null,
+                "address_city": null,
+                "address_state": null,
+                "address_zip": null,
+                "address_country": null,
+                "cvc_check": "pass",
+                "address_line1_check": null,
+                "address_zip_check": null,
+                "tokenization_method": null,
+                "dynamic_last4": null,
+                "metadata": {},
+                "customer": "cus_6gFh3K8CGL4N88"
+              }
+            ]
+          },
+          "default_source": "card_16StC4J4R6fOT5ApGH3t8rJo"
         }
     http_version: 
-  recorded_at: Sun, 26 Jul 2015 17:45:55 GMT
+  recorded_at: Sun, 26 Jul 2015 17:45:49 GMT
 recorded_with: VCR 2.9.3
