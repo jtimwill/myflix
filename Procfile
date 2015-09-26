@@ -1,1 +1,3 @@
-web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
+web: redis-server
+web: rails server
+worker: bundle exec sidekiq
