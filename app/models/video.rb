@@ -20,6 +20,20 @@ class Video < ActiveRecord::Base
   end
 
   def as_indexed_json(options={})
-    as_json(only: [:title])
+    as_json(only: [:title, :description])
+  end
+
+  def self.search(query)
+    __elasticsearch__.search(
+      {
+        query: {
+          multi_match: {
+            query: query,
+            type: "phrase_prefix",
+            fields: ['title', 'description']
+          }
+        }
+      }
+    )
   end
 end
