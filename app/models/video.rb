@@ -1,4 +1,8 @@
 class Video < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+  index_name ["myflix", Rails.env].join('_')
+
   belongs_to :category
   has_many :reviews, -> {order("created_at DESC")}
   validates_presence_of :title, :description
@@ -11,7 +15,11 @@ class Video < ActiveRecord::Base
     where("title LIKE ?", "%#{search_term}%").order("created_at DESC")
   end
 
-  def rating 
+  def rating
     reviews.average(:rating).round(1) if reviews.average(:rating)
+  end
+
+  def as_indexed_json(options={})
+    as_json(only: [:title])
   end
 end
