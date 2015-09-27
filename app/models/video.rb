@@ -20,7 +20,10 @@ class Video < ActiveRecord::Base
   end
 
   def as_indexed_json(options={})
-    as_json(only: [:title, :description])
+    as_json(
+      only: [:title, :description],
+      include: {reviews: { only: [:content]}}
+    )
   end
 
   def self.search(query)
@@ -28,7 +31,7 @@ class Video < ActiveRecord::Base
       query: {
         multi_match: {
           query: query,
-          fields: ['title', 'description'],
+          fields: ['title^100', 'description^50', 'content^1'],
           operator: "and"
         }
       }
