@@ -22,20 +22,27 @@ class Video < ActiveRecord::Base
   def as_indexed_json(options={})
     as_json(
       only: [:title, :description],
-      include: {reviews: { only: [:content]}}
+      include: {
+        reviews: { only: [:content]}
+      }
     )
   end
 
-  def self.search(query)
+  def self.search(query, options={})
     search_definition = {
       query: {
         multi_match: {
           query: query,
-          fields: ['title^100', 'description^50', 'content^1'],
+          fields: ['title^100', 'description^50'],
           operator: "and"
         }
       }
     }
+
+    if query.present? && options[:reviews]
+      search_definition[:query][:multi_match][:fields] << "reviews.content"
+    end
+
     __elasticsearch__.search(search_definition)
   end
 end
