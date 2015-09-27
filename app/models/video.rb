@@ -24,16 +24,15 @@ class Video < ActiveRecord::Base
   end
 
   def self.search(query)
-    __elasticsearch__.search(
-      {
-        query: {
-          multi_match: {
-            query: query,
-            type: "phrase_prefix",
-            fields: ['title', 'description']
-          }
+    search_definition = {
+      query: {
+        multi_match: {
+          query: query,
+          fields: ['title', 'description'],
+          operator: "and"
         }
       }
-    )
+    }
+    __elasticsearch__.search(search_definition)
   end
 end
