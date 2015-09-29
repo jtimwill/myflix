@@ -21,6 +21,8 @@ gem 'stripe'
 gem 'figaro'
 gem 'draper'
 gem 'stripe_event'
+gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 
 group :development do
   gem 'thin'
