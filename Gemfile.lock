@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/elasticsearch/elasticsearch-rails.git
+  revision: ded20356920802c35d258756113acfd95b25ade6
+  specs:
+    elasticsearch-model (0.1.7)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.7)
+
+GIT
   remote: https://github.com/DatabaseCleaner/database_cleaner
   revision: b8edac6bd04fb89a267201fa8d47066d511fd9de
   specs:
@@ -120,11 +130,6 @@ GEM
       elasticsearch-transport (= 1.0.13)
     elasticsearch-api (1.0.13)
       multi_json
-    elasticsearch-model (0.1.7)
-      activesupport (> 3)
-      elasticsearch (> 0.4)
-      hashie
-    elasticsearch-rails (0.1.7)
     elasticsearch-transport (1.0.13)
       faraday
       multi_json
@@ -242,7 +247,7 @@ GEM
     rspec-mocks (3.2.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
-    rspec-rails (3.2.1)
+    rspec-rails (3.2.2)
       actionpack (>= 3.0, < 4.3)
       activesupport (>= 3.0, < 4.3)
       railties (>= 3.0, < 4.3)
@@ -334,8 +339,8 @@ DEPENDENCIES
   coffee-rails
   database_cleaner!
   draper
-  elasticsearch-model
-  elasticsearch-rails
+  elasticsearch-model!
+  elasticsearch-rails!
   fabrication
   faker
   figaro
